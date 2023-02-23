@@ -11,9 +11,12 @@ if [ ! -e "$HOME/.bitcoin/bitcoin.conf" ]; then
 
     # Seed a random password for JSON RPC server
     cat <<EOF > $HOME/.bitcoin/bitcoin.conf
-regtest=${REGTEST:-0}
-disablewallet=${DISABLEWALLET:-1}
-printtoconsole=${PRINTTOCONSOLE:-1}
+testnet=1
+txindex=1
+disablewallet=1
+server=1
+txindex=1
+mempoolfullrbf=1
 rpcuser=${RPCUSER:-bitcoinrpc}
 rpcpassword=${RPCPASSWORD:-`dd if=/dev/urandom bs=33 count=1 2>/dev/null | base64`}
 EOF
